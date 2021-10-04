@@ -26,6 +26,13 @@ public class FlightManageActivity extends AppCompatActivity {
         setContentView(R.layout.activity_flight_manage);
 
         UserInfo = findViewById(R.id.user_text);
+
+        String userinfo = "Username: " + UserData.getUsername() + "\n"
+                        + "Id: " + UserData.getId() + "\n"
+                        + "PhoneNumber: " + UserData.getPhonenumber();
+
+        UserInfo.setText(userinfo);
+
         SiteInfo = findViewById(R.id.site_text);
         ServiceInfo = findViewById(R.id.service_text);
 
