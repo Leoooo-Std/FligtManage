@@ -32,6 +32,7 @@ public class SiteDialog extends Dialog {
         private ArrayAdapter<String> adapter2;
         private TextView siteText1;
         private TextView siteText2;
+        private Dialog dialog;
 
         private static final String[] m1 = {"A","B","C","D","E","F"};
         private static final String[] m2 = new String[50];

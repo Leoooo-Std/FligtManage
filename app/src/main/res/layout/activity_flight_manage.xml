@@ -21,9 +21,44 @@
             android:text="Flight Manage"
             android:textSize="34sp" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/flight_manage_list"
+        <TextView
+            android:id="@+id/user_text"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="68dp"
+            android:gravity="center"
+            android:text="UserInfo" />
+
+        <TextView
+            android:id="@+id/site_text"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:text="Your Site Information" />
+
+        <Button
+            android:id="@+id/site_btn"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:text="Click to Choose" />
+
+        <TextView
+            android:id="@+id/service_text"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:text="Your Service Information" />
+
+        <Button
+            android:id="@+id/service_btn"
+            android:layout_width="match_parent"
+            android:layout_height="67dp"
+            android:text="Click to Choose" />
+
+        <Button
+            android:id="@+id/submit"
+            android:layout_width="match_parent"
+            android:layout_height="71dp"
+            android:text="SUBMIT" />
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

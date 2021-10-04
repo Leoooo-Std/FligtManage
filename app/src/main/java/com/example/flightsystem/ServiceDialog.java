@@ -29,8 +29,8 @@ public class ServiceDialog extends Dialog {
         private Spinner spinner2;
         private ArrayAdapter<String> adapter1;
         private ArrayAdapter<String> adapter2;
-        private TextView siteText1;
-        private TextView siteText2;
+        private TextView serviceText1;
+        private TextView serviceText2;
         private TextView titleText;
 
         private static final String[] m1 = {"Hamburg","Biscuit","Bread","Salad"};
@@ -43,8 +43,8 @@ public class ServiceDialog extends Dialog {
             return this;
         }
 
-        public String getSite(){
-            return siteText1.getText() + ":"+siteText2.getText();
+        public String getService(){
+            return serviceText1.getText() + ":"+serviceText2.getText();
         }
 
         public Builder setPositiveButton(String positiveButtonText,
@@ -107,8 +107,8 @@ public class ServiceDialog extends Dialog {
                         View.GONE);
             }
 
-            siteText1 = layout.findViewById(R.id.site_text1);
-            siteText2 = layout.findViewById(R.id.site_text2);
+            serviceText1 = layout.findViewById(R.id.site_text1);
+            serviceText2 = layout.findViewById(R.id.site_text2);
             spinner1 = layout.findViewById(R.id.site_spinner1);
             spinner2 = layout.findViewById(R.id.site_spinner2);
             titleText = layout.findViewById(R.id.site_title);
@@ -126,7 +126,7 @@ public class ServiceDialog extends Dialog {
             spinner1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                 @Override
                 public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                    siteText1.setText("Food: " + m1[position]);
+                    serviceText1.setText("Food: " + m1[position]);
                 }
 
                 @Override
@@ -138,7 +138,7 @@ public class ServiceDialog extends Dialog {
             spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                 @Override
                 public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                    siteText2.setText("Drink: " + m2[position]);
+                    serviceText2.setText("Drink: " + m2[position]);
                 }
 
                 @Override

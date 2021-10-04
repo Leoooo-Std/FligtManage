@@ -4,41 +4,44 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Service;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
-
 public class FlightManageActivity extends AppCompatActivity {
-    private ArrayList<OrderData> mList;
-    private LinearLayoutManager mLinearLayoutManager;
-    private MyRecycleView2Adapter mAdapter;
-    private RecyclerView mRecycleView;
+    private TextView UserInfo;
+    private TextView SiteInfo;
+    private TextView ServiceInfo;
 
-    private MyRecycleView2Adapter.OnItemClickListener MyItemClickListener;
+    private Button SiteBtn;
+    private Button ServiceBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_flight_manage);
-        mRecycleView = findViewById(R.id.flight_manage_list);
-        MyItemClickListener = new MyRecycleView2Adapter.OnItemClickListener() {
-            @Override
-            public void onSiteButtonClick(int position) {
-                //TODO 弹窗提示选座位
 
-            }
+        UserInfo = findViewById(R.id.user_text);
+        SiteInfo = findViewById(R.id.site_text);
+        ServiceInfo = findViewById(R.id.service_text);
 
+        SiteBtn = findViewById(R.id.site_btn);
+        ServiceBtn = findViewById(R.id.service_btn);
+
+        SiteBtn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onServiceButtonClick(int position) {
-                //TODO 弹窗提示选服务
-                ServiceDialog.Builder builder = new ServiceDialog.Builder(FlightManageActivity.this);
-                builder.setTitle("Choose Service");
+            public void onClick(View v) {
+                SiteDialog.Builder builder = new SiteDialog.Builder(FlightManageActivity.this);
+                builder.setTitle("Choose Site");
                 builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         String site = builder.getSite();
+                        UserInfo.setText("Your Site Info: " + site);
                         Toast.makeText(getApplicationContext(), "reserve"+ site + "succeed",Toast.LENGTH_SHORT).show();
                     }
                 });
@@ -46,27 +49,35 @@ public class FlightManageActivity extends AppCompatActivity {
                 builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        return;
+                        dialog.cancel();
                     }
                 });
                 builder.create().show();
             }
-        };
-        initView();
-        initData();
-    }
+        });
 
-    private void initView() {
-        mList = new ArrayList<OrderData>();
-        mLinearLayoutManager = new LinearLayoutManager(FlightManageActivity.this, LinearLayoutManager.VERTICAL, false);
-        mAdapter = new MyRecycleView2Adapter(mList);
-        mRecycleView.setLayoutManager(mLinearLayoutManager);
-        mAdapter.setOnItemClickListener(MyItemClickListener);
-        mRecycleView.setAdapter(mAdapter);
-    }
+        ServiceBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ServiceDialog.Builder builder = new ServiceDialog.Builder(FlightManageActivity.this);
+                builder.setTitle("Choose Service");
+                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        String service = builder.getService();
+                        ServiceInfo.setText("Your Service Info: " + service);
+                        Toast.makeText(getApplicationContext(), "reserve"+ service + "succeed",Toast.LENGTH_SHORT).show();
+                    }
+                });
 
-    private void initData(){
-        mList.clear();
-        mList.add(new OrderData(1,"NH1999","17:00-19:00","",""));
+                builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+                builder.create().show();
+            }
+        });
     }
 }
