@@ -27,23 +27,7 @@ public class FlightManageActivity extends AppCompatActivity {
             @Override
             public void onSiteButtonClick(int position) {
                 //TODO 弹窗提示选座位
-                SiteDialog.Builder builder = new SiteDialog.Builder(FlightManageActivity.this);
-                builder.setTitle("Choose Site");
-                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        String site = builder.getSite();
-                        Toast.makeText(getApplicationContext(), "reserve"+ site + "succeed",Toast.LENGTH_SHORT).show();
-                    }
-                });
 
-                builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        return;
-                    }
-                });
-                builder.create().show();
             }
 
             @Override

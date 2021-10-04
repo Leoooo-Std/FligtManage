@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Adapter;
@@ -24,13 +25,12 @@ public class FligthSearchActivity extends AppCompatActivity {
             final AlertDialog.Builder normalDialog =
                     new AlertDialog.Builder(FligthSearchActivity.this);
             normalDialog.setTitle("Order");
+            normalDialog.setMessage("Whether to confirm the order");
             normalDialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
-                    //TODO 将确认的订单数据保存到文件中
-                    FlightData data = mList.get(position);
-                    Toast.makeText(FligthSearchActivity.this,"Buy Succeed",Toast.LENGTH_LONG).show();
-                    Log.e("Flight Manage",data.toString());
+                    Intent intent = new Intent(FligthSearchActivity.this,FlightManageActivity.class);
+                    startActivity(intent);
                 }
             });
 
