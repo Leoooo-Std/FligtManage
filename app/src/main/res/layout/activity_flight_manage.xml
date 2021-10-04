@@ -55,7 +55,7 @@
             android:text="Click to Choose" />
 
         <Button
-            android:id="@+id/submit"
+            android:id="@+id/submit_btn"
             android:layout_width="match_parent"
             android:layout_height="71dp"
             android:text="SUBMIT" />

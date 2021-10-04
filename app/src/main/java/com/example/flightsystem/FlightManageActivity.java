@@ -1,10 +1,9 @@
 package com.example.flightsystem;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
-import android.app.Service;
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
@@ -16,28 +15,40 @@ public class FlightManageActivity extends AppCompatActivity {
     private TextView UserInfo;
     private TextView SiteInfo;
     private TextView ServiceInfo;
+    private String UserInfoText;
+    private String FlightInfoText;
+    private String SiteInfoText;
+    private String ServiceInfoText;
 
     private Button SiteBtn;
     private Button ServiceBtn;
+
+    private Button SubmitBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_flight_manage);
 
+        Bundle bundle = getIntent().getExtras();
+        if(bundle != null && bundle.keySet().contains("flightInfo")){
+            FlightInfoText = savedInstanceState.getString("flightInfo");
+        }
+
         UserInfo = findViewById(R.id.user_text);
 
-        String userinfo = "Username: " + UserData.getUsername() + "\n"
-                        + "Id: " + UserData.getId() + "\n"
-                        + "PhoneNumber: " + UserData.getPhonenumber();
+        UserInfoText = "\tUsername: " + UserData.getUsername() + "\n"
+                        + "\tId: " + UserData.getId() + "\n"
+                        + "\tPhoneNumber: " + UserData.getPhonenumber();
 
-        UserInfo.setText(userinfo);
+        UserInfo.setText(UserInfoText);
 
         SiteInfo = findViewById(R.id.site_text);
         ServiceInfo = findViewById(R.id.service_text);
 
         SiteBtn = findViewById(R.id.site_btn);
         ServiceBtn = findViewById(R.id.service_btn);
+        SubmitBtn = findViewById(R.id.submit_btn);
 
         SiteBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,9 +58,10 @@ public class FlightManageActivity extends AppCompatActivity {
                 builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        String site = builder.getSite();
-                        UserInfo.setText("Your Site Info: " + site);
-                        Toast.makeText(getApplicationContext(), "reserve"+ site + "succeed",Toast.LENGTH_SHORT).show();
+                        SiteInfoText = builder.getSite();
+                        SiteInfo.setText("\tYour Site Info: " + SiteInfoText);
+                        Toast.makeText(getApplicationContext(), "reserve"+ SiteInfoText + "succeed",Toast.LENGTH_SHORT).show();
+                        dialog.cancel();
                     }
                 });
 
@@ -71,9 +83,10 @@ public class FlightManageActivity extends AppCompatActivity {
                 builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        String service = builder.getService();
-                        ServiceInfo.setText("Your Service Info: " + service);
-                        Toast.makeText(getApplicationContext(), "reserve"+ service + "succeed",Toast.LENGTH_SHORT).show();
+                        ServiceInfoText = builder.getService();
+                        ServiceInfo.setText("\tYour Service Info: " + ServiceInfoText);
+                        Toast.makeText(getApplicationContext(), "reserve"+ ServiceInfoText + "succeed",Toast.LENGTH_SHORT).show();
+                        dialog.cancel();
                     }
                 });
 
@@ -81,6 +94,25 @@ public class FlightManageActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.cancel();
+                    }
+                });
+                builder.create().show();
+            }
+        });
+
+        SubmitBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MessageDialog.Builder builder = new MessageDialog.Builder(FlightManageActivity.this);
+                builder.setTitle("Check Information");
+                builder.setUserInfo(UserInfoText);
+                builder.setFlightInfo(FlightInfoText);
+                builder.setSiteInfo(SiteInfoText);
+                builder.setServiceInfo(ServiceInfoText);
+                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
                     }
                 });
                 builder.create().show();

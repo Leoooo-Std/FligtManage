@@ -30,7 +30,9 @@ public class FligthSearchActivity extends AppCompatActivity {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
                     Intent intent = new Intent(FligthSearchActivity.this,FlightManageActivity.class);
-                    startActivity(intent);
+                    Bundle bundle = new Bundle();
+                    bundle.putString("flightInfo",mList.get(position).toString());
+                    startActivity(intent,bundle);
                 }
             });
 
