@@ -33,8 +33,8 @@ public class ServiceDialog extends Dialog {
         private TextView serviceText2;
         private TextView titleText;
 
-        private static final String[] m1 = {"Hamburg","Biscuit","Bread","Salad"};
-        private static final String[] m2 = {"Milk","Coca Cola","Wine","Juice"};
+        private static final String[] m1 = {"No","Hamburg","Biscuit","Bread","Salad"};
+        private static final String[] m2 = {"No","Milk","Coca Cola","Wine","Juice"};
 
         public Builder(Context context){this.context = context;};
 
