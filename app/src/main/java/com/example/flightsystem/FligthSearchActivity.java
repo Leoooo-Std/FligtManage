@@ -12,6 +12,8 @@ import android.util.Log;
 import android.widget.Adapter;
 import android.widget.Toast;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 public class FligthSearchActivity extends AppCompatActivity {
@@ -68,7 +70,19 @@ public class FligthSearchActivity extends AppCompatActivity {
     public void initData() {
         //TODO 从文件中读取数据然后在list中显示
         mList.clear();
-        mList.add(new FlightData("19:00","21:00","Beijing","Shanghai","NH1999"));
+        InputStreamReader is = null;
+        try{
+            is = new InputStreamReader(getAssets().open("flight.csv"));
+            BufferedReader reader = new BufferedReader(is);
+            String line = null;
+            while((line = reader.readLine()) != null){
+                String[] info = line.split(",");
+                mList.add(new FlightData(info[3],info[4],info[1],info[2],info[0]));
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
     }
 
 }
