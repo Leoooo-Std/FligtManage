@@ -31,8 +31,8 @@ public class FlightManageActivity extends AppCompatActivity {
         setContentView(R.layout.activity_flight_manage);
 
         Bundle bundle = getIntent().getExtras();
-        if(bundle != null && bundle.keySet().contains("flightInfo")){
-            FlightInfoText = savedInstanceState.getString("flightInfo");
+        if(bundle != null && bundle.containsKey("flightInfo")){
+            FlightInfoText = (String)bundle.get("flightInfo");
         }
 
         UserInfo = findViewById(R.id.user_text);
@@ -60,7 +60,7 @@ public class FlightManageActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         SiteInfoText = builder.getSite();
                         SiteInfo.setText("\tYour Site Info: " + SiteInfoText);
-                        Toast.makeText(getApplicationContext(), "reserve"+ SiteInfoText + "succeed",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), SiteInfoText,Toast.LENGTH_SHORT).show();
                         dialog.cancel();
                     }
                 });
@@ -85,7 +85,7 @@ public class FlightManageActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         ServiceInfoText = builder.getService();
                         ServiceInfo.setText("\tYour Service Info: " + ServiceInfoText);
-                        Toast.makeText(getApplicationContext(), "reserve"+ ServiceInfoText + "succeed",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), ServiceInfoText,Toast.LENGTH_SHORT).show();
                         dialog.cancel();
                     }
                 });

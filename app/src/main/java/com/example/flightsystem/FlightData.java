@@ -1,5 +1,7 @@
 package com.example.flightsystem;
 
+import org.jetbrains.annotations.NotNull;
+
 public class FlightData {
     private String startTime;
 
@@ -42,6 +44,11 @@ public class FlightData {
     public void setName(String name) {
         this.name = name;
     }
+
+    public String getInfo(){
+        return name + "\n" + startTime + "-" + endTime + "\n" + startCity + "-" + endCity;
+    }
+
 
     private String endTime;
     private String startCity;
