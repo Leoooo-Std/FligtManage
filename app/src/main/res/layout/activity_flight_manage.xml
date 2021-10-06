@@ -17,23 +17,29 @@
             android:id="@+id/textView2"
             android:layout_width="match_parent"
             android:layout_height="130dp"
+            android:background="#DCEDFB"
             android:gravity="center"
             android:text="Flight Manage"
-            android:textSize="34sp" />
+            android:textSize="48sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/user_text"
             android:layout_width="match_parent"
             android:layout_height="68dp"
+            android:background="#FFF388"
             android:gravity="center|left"
-            android:text="UserInfo" />
+            android:text="UserInfo"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/site_text"
             android:layout_width="match_parent"
             android:layout_height="50dp"
+            android:background="#FFF388"
             android:gravity="center"
-            android:hint="Your Site Information" />
+            android:hint="Your Site Information"
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/site_btn"
@@ -45,8 +51,10 @@
             android:id="@+id/service_text"
             android:layout_width="match_parent"
             android:layout_height="50dp"
+            android:background="#FFF388"
             android:gravity="center"
-            android:hint="Your Service Information" />
+            android:hint="Your Service Information"
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/service_btn"

@@ -16,11 +16,12 @@
             android:id="@+id/site_title"
             android:layout_width="fill_parent"
             android:layout_height="50dp"
-            android:background="#FFFFFF"
+            android:background="#FFADAD"
             android:gravity="center"
             android:text="座位预约"
             android:textColor="#7E7E7E"
-            android:textSize="20sp"
+            android:textSize="24sp"
+            android:textStyle="bold"
             android:visibility="visible" />
 
         <LinearLayout
@@ -37,8 +38,10 @@
                     android:id="@+id/site_text1"
                     android:layout_width="match_parent"
                     android:layout_height="35dp"
+                    android:background="#29FF31"
                     android:gravity="center"
-                    android:text="编号" />
+                    android:text="编号"
+                    android:textStyle="bold" />
 
                 <Spinner
                     android:id="@+id/site_spinner1"
@@ -61,8 +64,10 @@
                     android:id="@+id/site_text2"
                     android:layout_width="match_parent"
                     android:layout_height="35dp"
+                    android:background="#29FF31"
                     android:gravity="center"
-                    android:text="位置" />
+                    android:text="位置"
+                    android:textStyle="bold" />
 
                 <Spinner
                     android:id="@+id/site_spinner2"
@@ -76,9 +81,9 @@
             android:layout_width="fill_parent"
             android:layout_height="50dp"
             android:layout_gravity="bottom"
-            android:background="#ffffff"
+            android:background="#FFADAD"
             android:gravity="center"
-            android:orientation="horizontal" >
+            android:orientation="horizontal">
 
             <Space
                 android:layout_width="wrap_content"

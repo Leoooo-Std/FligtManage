@@ -23,13 +23,16 @@
             android:id="@+id/flight_search_text"
             android:layout_width="match_parent"
             android:layout_height="113dp"
+            android:background="#DCEDFB"
             android:gravity="center"
             android:text="Choose Flight"
-            android:textSize="34sp" />
+            android:textSize="48sp"
+            android:textStyle="bold" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/flight_search_list"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:background="#FFD862" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
