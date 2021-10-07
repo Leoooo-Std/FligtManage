@@ -27,7 +27,7 @@
             android:id="@+id/user_text"
             android:layout_width="match_parent"
             android:layout_height="68dp"
-            android:background="#FFF388"
+            android:background="#DDDDDD"
             android:gravity="center|left"
             android:text="UserInfo"
             android:textStyle="bold" />
@@ -36,7 +36,7 @@
             android:id="@+id/site_text"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:background="#FFF388"
+            android:background="#DDDDDD"
             android:gravity="center"
             android:hint="Your Site Information"
             android:textStyle="bold" />
@@ -51,7 +51,7 @@
             android:id="@+id/service_text"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:background="#FFF388"
+            android:background="#DDDDDD"
             android:gravity="center"
             android:hint="Your Service Information"
             android:textStyle="bold" />

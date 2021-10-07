@@ -22,7 +22,7 @@
             android:gravity="center"
             android:hapticFeedbackEnabled="true"
             android:text="Check Information"
-            android:textColor="#7E7E7E"
+            android:textColor="#000000"
             android:textSize="24sp"
             android:textStyle="bold"
             android:visibility="visible" />

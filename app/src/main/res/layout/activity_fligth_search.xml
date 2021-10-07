@@ -33,6 +33,6 @@
             android:id="@+id/flight_search_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#FFD862" />
+            android:background="#DDDDDD" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

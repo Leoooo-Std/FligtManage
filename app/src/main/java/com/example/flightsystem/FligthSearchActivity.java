@@ -34,9 +34,9 @@ public class FligthSearchActivity extends AppCompatActivity {
                     Intent intent = new Intent(FligthSearchActivity.this,FlightManageActivity.class);
                     intent.putExtra("flightName",mList.get(position).getName());
                     intent.putExtra("flightStartTime",mList.get(position).getStartTime());
-                    intent.putExtra("flightStartTime",mList.get(position).getEndTime());
-                    intent.putExtra("flightStartTime",mList.get(position).getStartCity());
-                    intent.putExtra("flightStartTime",mList.get(position).getEndCity());
+                    intent.putExtra("flightEndTime",mList.get(position).getEndTime());
+                    intent.putExtra("flightStartCity",mList.get(position).getStartCity());
+                    intent.putExtra("flightEndCity",mList.get(position).getEndCity());
                     startActivity(intent);
                 }
             });

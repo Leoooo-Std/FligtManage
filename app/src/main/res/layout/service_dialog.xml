@@ -16,10 +16,10 @@
             android:id="@+id/service_title"
             android:layout_width="fill_parent"
             android:layout_height="50dp"
-            android:background="#FFADAD"
+            android:background="#DDDDDD"
             android:gravity="center"
             android:text="服务预约"
-            android:textColor="#7E7E7E"
+            android:textColor="#000000"
             android:textSize="24sp"
             android:textStyle="bold"
             android:visibility="visible" />
@@ -38,7 +38,6 @@
                     android:id="@+id/site_text1"
                     android:layout_width="match_parent"
                     android:layout_height="35dp"
-                    android:background="#29FF31"
                     android:gravity="center"
                     android:text="食品"
                     android:textStyle="bold" />
@@ -65,7 +64,6 @@
                     android:id="@+id/site_text2"
                     android:layout_width="match_parent"
                     android:layout_height="35dp"
-                    android:background="#29FF31"
                     android:gravity="center"
                     android:text="饮料"
                     android:textStyle="bold" />
@@ -83,7 +81,7 @@
             android:layout_width="fill_parent"
             android:layout_height="50dp"
             android:layout_gravity="bottom"
-            android:background="#FFADAD"
+            android:background="#FFFFFF"
             android:gravity="center"
             android:orientation="horizontal">
 
@@ -97,8 +95,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="取消"
-                android:textColor="#FFFFFF" />
+                android:text="取消" />
 
             <Space
                 android:layout_width="wrap_content"
